@@ -66,20 +66,16 @@ class Author:
             raise Exception("Name must be a string more than 0 characters") 
 
     def articles(self):
-        # return unique list of articles written by this author
         return [article for article in Article.all if article.author == self]
 
     def magazines(self):
-        # return unique lise of magazines author has articles in
         magazine_set = {article.magazine for article in self.articles()}
         return list(magazine_set)
 
     def add_article(self, magazine, title):
-        # adds article written by this authoer
         return Article(self, magazine, title)
 
     def topic_areas(self):
-        # return unique list of categories of magazines author has contributed to
         magazine_categories = {magazine.category for magazine in self.magazines()}
         if len(magazine_categories) > 0:
             return list(magazine_categories)
@@ -124,16 +120,13 @@ class Magazine:
         cls.all.append(new_magazine)
 
     def articles(self):
-        # return list of articles for magazine
         return [article for article in Article.all if article.magazine == self]
 
     def contributors(self):
-        # return list of unique authors for magazine
         author_set = {article.author for article in self.articles()}
         return list(author_set)
 
     def article_titles(self):
-        # return unique list of article titles in magazine
         titles_set = {article.title for article in self.articles()}
         if len(titles_set) > 0:
             return list(titles_set)
@@ -141,7 +134,6 @@ class Magazine:
             return None
 
     def contributing_authors(self):
-        # return list of authors that have more than 2 contributions to magazine
         list_of_authors = [article.author for article in self.articles()]
         contributing_authors = [author for author in self.contributors() if list_of_authors.count(author) > 2]
         if contributing_authors:
@@ -149,6 +141,10 @@ class Magazine:
         else:
             return None
         
+
+
+# causes one test in magazine_test.py file to error out? left this code out due to error
+
     # @classmethod
     # def top_publisher(cls):
     #     is_articles = False
