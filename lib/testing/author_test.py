@@ -10,38 +10,38 @@ class TestAuthor:
 
     def test_has_name(self):
         """Author is initialized with a name"""
-        author_1 = Author("Carry Bradshaw")
+        author_1 = Author("Carrie Bradshaw")
         author_2 = Author("Nathaniel Hawthorne")
         magazine = Magazine("Vogue", "Fashion")
         Article(author_1, magazine, "How to wear a tutu with style")
         Article(author_2, magazine, "Dating life in NYC")
 
-        assert author_1.name == "Carry Bradshaw"
+        assert author_1.name == "Carrie Bradshaw"
         assert author_2.name == "Nathaniel Hawthorne"
 
     def test_name_is_immutable_string(self):
         """author name is of type str and cannot change"""
-        author_1 = Author("Carry Bradshaw")
+        author_1 = Author("Carrie Bradshaw")
         author_2 = Author("Nathaniel Hawthorne")
 
         assert isinstance(author_1.name, str)
         assert isinstance(author_2.name, str)
 
         # comment out the next two lines if using Exceptions
-        author_1.name = "ActuallyTopher"
-        assert author_1.name == "Carry Bradshaw"
+        # author_1.name = "ActuallyTopher"
+        # assert author_1.name == "Carrie Bradshaw"
 
         # comment out the next two lines if using Exceptions
-        author_2.name = 2
-        assert author_2.name == "Nathaniel Hawthorne"
+        # author_2.name = 2
+        # assert author_2.name == "Nathaniel Hawthorne"
 
         # uncomment the next two lines if using Exceptions
-        # with pytest.raises(Exception):
-        #     Author(2)
+        with pytest.raises(Exception):
+            Author(2)
 
     def test_name_len(self):
         """author name is longer than 0 characters"""
-        author_1 = Author("Carry Bradshaw")
+        author_1 = Author("Carrie Bradshaw")
         author_2 = Author("Nathaniel Hawthorne")
 
         assert hasattr(author_1, "name")
@@ -50,12 +50,12 @@ class TestAuthor:
         assert len(author_2.name) > 0
 
         # uncomment the next two lines if using Exceptions
-        # with pytest.raises(Exception):
-        #     Author("")
+        with pytest.raises(Exception):
+            Author("")
 
     def test_has_many_articles(self):
         """author has many articles"""
-        author_1 = Author("Carry Bradshaw")
+        author_1 = Author("Carrie Bradshaw")
         author_2 = Author("Nathaniel Hawthorne")
         magazine = Magazine("Vogue", "Fashion")
         article_1 = Article(author_1, magazine, "How to wear a tutu with style")
@@ -71,7 +71,7 @@ class TestAuthor:
 
     def test_articles_of_type_articles(self):
         """author articles are of type Article"""
-        author_1 = Author("Carry Bradshaw")
+        author_1 = Author("Carrie Bradshaw")
         author_2 = Author("Nathaniel Hawthorne")
         magazine = Magazine("Vogue", "Fashion")
         Article(author_1, magazine, "How to wear a tutu with style")
@@ -82,7 +82,7 @@ class TestAuthor:
 
     def test_has_many_magazines(self):
         """author has many magazines"""
-        author_1 = Author("Carry Bradshaw")
+        author_1 = Author("Carrie Bradshaw")
         magazine_1 = Magazine("Vogue", "Fashion")
         magazine_2 = Magazine("AD", "Architecture")
         magazine_3 = Magazine("GQ", "Fashion")
@@ -95,7 +95,7 @@ class TestAuthor:
 
     def test_magazines_of_type_magazine(self):
         """author magazines are of type Magazine"""
-        author_1 = Author("Carry Bradshaw")
+        author_1 = Author("Carrie Bradshaw")
         author_2 = Author("Nathaniel Hawthorne")
         magazine_1 = Magazine("Vogue", "Fashion")
         magazine_2 = Magazine("AD", "Architecture")
@@ -110,7 +110,7 @@ class TestAuthor:
 
     def test_magazines_are_unique(self):
         """author magazines are unique"""
-        author_1 = Author("Carry Bradshaw")
+        author_1 = Author("Carrie Bradshaw")
         magazine_1 = Magazine("Vogue", "Fashion")
         magazine_2 = Magazine("AD", "Architecture")
         Article(author_1, magazine_1, "How to wear a tutu with style")
@@ -122,7 +122,7 @@ class TestAuthor:
 
     def test_add_article(self):
         """creates and returns a new article given a magazine and title"""
-        author_1 = Author("Carry Bradshaw")
+        author_1 = Author("Carrie Bradshaw")
         magazine_1 = Magazine("Vogue", "Fashion")
         magazine_2 = Magazine("AD", "Architecture")
         article_1 = author_1.add_article(magazine_1, "How to wear a tutu with style")
@@ -139,7 +139,7 @@ class TestAuthor:
 
     def test_topic_areas(self):
         """returns a list of topic areas for all articles by author"""
-        author_1 = Author("Carry Bradshaw")
+        author_1 = Author("Carrie Bradshaw")
         author_2 = Author("Nathaniel Hawthorne")
         magazine_1 = Magazine("Vogue", "Fashion")
         magazine_2 = Magazine("AD", "Architecture")
@@ -153,7 +153,7 @@ class TestAuthor:
 
     def test_topic_areas_are_unique(self):
         """topic areas are unique"""
-        author_1 = Author("Carry Bradshaw")
+        author_1 = Author("Carrie Bradshaw")
         author_2 = Author("Giorgio Faletti")
         magazine_1 = Magazine("Vogue", "Fashion")
         magazine_2 = Magazine("AD", "Architecture")
